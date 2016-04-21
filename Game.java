@@ -74,7 +74,7 @@ public class Game {
           nuevoIntento= !retirar(i);
         } else {//apuesta positiva
           if (i>0) {//a partir del 2do jugador
-            anteriorBet=players.get(i-1).getBet();
+            anteriorBet=players.get(0).getBet();
             if (anteriorBet!=0) {//si hay apuesta anteriormente
               if (actualBet==anteriorBet) //si coinciden las apuestas
                 nuevoIntento=false;
