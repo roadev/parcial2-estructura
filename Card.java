@@ -17,7 +17,11 @@ public class Card implements Comparable<Card>{
   }
 
   public int getValue() {
-  	return value;
+    return value;
+  }
+
+  public void setValue(int i) {
+    value=i;
   }
 
   public int compareTo(Card c){

@@ -17,58 +17,26 @@ public class Deck {
 	}
 
 	private void inicialize () {
-		cards.add(new Card ("\uD83C\uDCA2", 2));
-		cards.add(new Card ("\uD83C\uDCB2", 2));
-		cards.add(new Card ("\uD83C\uDCC2", 2));
-		cards.add(new Card ("\uD83C\uDCD2", 2));
-		cards.add(new Card ("\uD83C\uDCA3", 3));
-		cards.add(new Card ("\uD83C\uDCB3", 3));
-		cards.add(new Card ("\uD83C\uDCC3", 3));
-		cards.add(new Card ("\uD83C\uDCD3", 3));
-		cards.add(new Card ("\uD83C\uDCA4", 4));
-		cards.add(new Card ("\uD83C\uDCB4", 4));
-		cards.add(new Card ("\uD83C\uDCC4", 4));
-		cards.add(new Card ("\uD83C\uDCD4", 4));
-		cards.add(new Card ("\uD83C\uDCA5", 5));
-		cards.add(new Card ("\uD83C\uDCB5", 5));
-		cards.add(new Card ("\uD83C\uDCC5", 5));
-		cards.add(new Card ("\uD83C\uDCD5", 5));
-		cards.add(new Card ("\uD83C\uDCA6", 6));
-		cards.add(new Card ("\uD83C\uDCB6", 6));
-		cards.add(new Card ("\uD83C\uDCC6", 6));
-		cards.add(new Card ("\uD83C\uDCD6", 6));
-		cards.add(new Card ("\uD83C\uDCA7", 7));
-		cards.add(new Card ("\uD83C\uDCB7", 7));
-		cards.add(new Card ("\uD83C\uDCC7", 7));
-		cards.add(new Card ("\uD83C\uDCD7", 7));
-		cards.add(new Card ("\uD83C\uDCA8", 8));
-		cards.add(new Card ("\uD83C\uDCB8", 8));
-		cards.add(new Card ("\uD83C\uDCC8", 8));
-		cards.add(new Card ("\uD83C\uDCD8", 8));
-		cards.add(new Card ("\uD83C\uDCA9", 9));
-		cards.add(new Card ("\uD83C\uDCB9", 9));
-		cards.add(new Card ("\uD83C\uDCC9", 9));
-		cards.add(new Card ("\uD83C\uDCD9", 9));
-		cards.add(new Card ("\uD83C\uDCAA", 10));
-		cards.add(new Card ("\uD83C\uDCBA", 10));
-		cards.add(new Card ("\uD83C\uDCCA", 10));
-		cards.add(new Card ("\uD83C\uDCDA", 10));
-		cards.add(new Card ("\uD83C\uDCAB", 11));
-		cards.add(new Card ("\uD83C\uDCBB", 11));
-		cards.add(new Card ("\uD83C\uDCCB", 11));
-		cards.add(new Card ("\uD83C\uDCDB", 11));
-		cards.add(new Card ("\uD83C\uDCAD", 12));
-		cards.add(new Card ("\uD83C\uDCBD", 12));
-		cards.add(new Card ("\uD83C\uDCCD", 12));
-		cards.add(new Card ("\uD83C\uDCDD", 12));
-		cards.add(new Card ("\uD83C\uDCAE", 13));
-		cards.add(new Card ("\uD83C\uDCBE", 13));
-		cards.add(new Card ("\uD83C\uDCCE", 13));
-		cards.add(new Card ("\uD83C\uDCDE", 13));
-		cards.add(new Card ("\uD83C\uDCA1", 14));
-		cards.add(new Card ("\uD83C\uDCB1", 14));
-		cards.add(new Card ("\uD83C\uDCC1", 14));
-		cards.add(new Card ("\uD83C\uDCD1", 14));
+		String str="";
+		int codePoint=0;
+		String symbol="";
+
+		for (int c2 = 1, value=1; c2 <= 0xE; c2++, value++) {
+			for (int c1 = 0xA; c1 <= 0xD; c1++) {
+				if (c2!=0xC) {
+					str = String.format("1F0%X%X", c1, c2);
+					codePoint = Integer.parseInt(str, 16);
+					symbol = String.format("%c", codePoint);
+					//System.out.println(symbol);
+					cards.add(new Card (symbol, value));
+				} else {
+					value = 11;
+				}
+			}
+		}
+
+		for (int i=0;i<5;i++)
+			cards.get(i).setValue(14);
 	}
 
 	public void shuffleCards () {
