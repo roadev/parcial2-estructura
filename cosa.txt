@@ -49,3 +49,33 @@ private void menuJugador (){
       System.out.println("Seleccionó "+opc);
     }
   }
+
+  
+      if (value < 10)
+        last = "\uDCA"+value; // 2 - 9
+      else if (value == 10) // 10
+        last = "A";
+      else if (value == 11) // J
+        last = "B";
+      else if (value == 12) // Q
+        last = "D";
+      else if (value == 13) // K
+        last = "E";
+      else if (value == 14) // AS
+        last = Integer.toString(1);
+
+      code = "\u"+base.substring(0,3)+"\u"+base.substring(4,5)+"A"+last;
+      card = new Card(code, value);
+      cards.add(card);
+
+      code = "\u"+base.substring(0,3)+"\u"+base.substring(4,5)+"B"+last;
+      card = new Card(code, value);
+      cards.add(card);
+
+      code = "\u"+base.substring(0,3)+"\u"+base.substring(4,5)+"D"+last;
+      card = new Card(code, value);
+      cards.add(card);
+
+      code = "\u"+base.substring(0,3)+"\u"+base.substring(4,5)+"E"+last;
+      card = new Card(code, value);
+      cards.add(card);
