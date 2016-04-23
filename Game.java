@@ -17,10 +17,8 @@ public class Game {
   public void setNumPlayers(int numPlayers) {
   	this.numPlayers = numPlayers;
 
-  	for (int i=0; i<numPlayers; i++) {
-  		Player jugador = new Player();
-  		players.add(jugador);
-  	}
+  	for (int i=0; i<numPlayers; i++)
+  		players.add(new Player());
   }
 
   public int getNumPlayers() {
@@ -36,20 +34,21 @@ public class Game {
   }
 
   public void distributeCards () {
-  	int actualPlayer = 1;
+  	int actualPlayer = 0;
 
   	do {
   		Card[] handAux = baraja.deleteSubList();
-  		Player jugador = players.get(actualPlayer-1); //actualPlayer-1 dado que los indices empiezan en 0
+      Player jugador = players.get(actualPlayer);
   		jugador.setHand(handAux);
   		actualPlayer += 1;
-  	} while (actualPlayer <= numPlayers);
+  	} while (actualPlayer < numPlayers);
   }
 
   public boolean retirar (int i) {
     boolean retira = false;
     System.out.println("(input) Jugador "+(i+1)+" escriba 0 para retirarse");
     int x = input.nextInt();
+
     if (x==0) {
       retira=true;
       Card[] regresan = players.get(i).getHand();
@@ -108,12 +107,10 @@ public class Game {
   public void destaparCartas () {
     for (int i=0; i<numPlayers; i++) {
       int apuesta = players.get(i).getBet();
-      if(apuesta!=0) {
-        System.out.println("Jugador "+(i+1)+":");
-        System.out.println(players.get(i).printHand());
-      } else {
+      if(apuesta!=0)
+        System.out.println("Jugador "+(i+1)+":\n"+players.get(i).printHand());
+      else
         System.out.println("Jugador "+(i+1)+": retirado");
-      }
     }
   }
 
