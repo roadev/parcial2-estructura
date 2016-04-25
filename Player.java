@@ -159,6 +159,8 @@ public class Player {
 			return "Escalera Color";
 		else if (poquer())
 			return "Poquer";
+		else if (hayTrioCartas(getHand()))
+			return "Trío";
 		else {
 			valorJugada = 1;
 			return "Carta Alta";
