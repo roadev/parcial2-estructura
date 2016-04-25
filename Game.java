@@ -107,8 +107,10 @@ public class Game {
   public void destaparCartas () {
     for (int i=0; i<numPlayers; i++) {
       int apuesta = players.get(i).getBet();
-      if(apuesta!=0)
+      if(apuesta!=0) {
         System.out.println("Jugador "+(i+1)+":\n"+players.get(i).printHand());
+        System.out.println(players.get(i).decirJugada());
+      }
       else
         System.out.println("Jugador "+(i+1)+": retirado");
     }

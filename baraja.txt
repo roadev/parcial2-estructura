@@ -1,0 +1,65 @@
+picas ~ symbol=🂡 (14)
+corazones ~ symbol=🂱 (14)
+diamantes ~ symbol=🃁 (14)
+trébol ~ symbol=🃑 (14)
+
+picas ~ symbol=🂢 (2)
+corazones ~ symbol=🂲 (2)
+diamantes ~ symbol=🃂 (2)
+trébol ~ symbol=🃒 (2)
+
+picas ~ symbol=🂣 (3)
+corazones ~ symbol=🂳 (3)
+diamantes ~ symbol=🃃 (3)
+trébol ~ symbol=🃓 (3)
+
+picas ~ symbol=🂤 (4)
+corazones ~ symbol=🂴 (4)
+diamantes ~ symbol=🃄 (4)
+trébol ~ symbol=🃔 (4)
+
+picas ~ symbol=🂥 (5)
+corazones ~ symbol=🂵 (5)
+diamantes ~ symbol=🃅 (5)
+trébol ~ symbol=🃕 (5)
+
+picas ~ symbol=🂦 (6)
+corazones ~ symbol=🂶 (6)
+diamantes ~ symbol=🃆 (6)
+trébol ~ symbol=🃖 (6)
+
+picas ~ symbol=🂧 (7)
+corazones ~ symbol=🂷 (7)
+diamantes ~ symbol=🃇 (7)
+trébol ~ symbol=🃗 (7)
+
+picas ~ symbol=🂨 (8)
+corazones ~ symbol=🂸 (8)
+diamantes ~ symbol=🃈 (8)
+trébol ~ symbol=🃘 (8)
+
+picas ~ symbol=🂩 (9)
+corazones ~ symbol=🂹 (9)
+diamantes ~ symbol=🃉 (9)
+trébol ~ symbol=🃙 (9)
+
+picas ~ symbol=🂪 (10)
+corazones ~ symbol=🂺 (10)
+diamantes ~ symbol=🃊 (10)
+trébol ~ symbol=🃚 (10)
+
+picas ~ symbol=🂫 (11)
+corazones ~ symbol=🂻 (11)
+diamantes ~ symbol=🃋 (11)
+trébol ~ symbol=🃛 (11)
+
+
+picas ~ symbol=🂭 (12)
+corazones ~ symbol=🂽 (12)
+diamantes ~ symbol=🃍 (12)
+trébol ~ symbol=🃝 (12)
+
+picas ~ symbol=🂮 (13)
+corazones ~ symbol=🂾 (13)
+diamantes ~ symbol=🃎 (13)
+trébol ~ symbol=🃞 (13)

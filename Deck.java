@@ -11,8 +11,8 @@ public class Deck {
 		inicialize();
 	}
 
-	private void createCard (String symbol, int value) {
-		Card card = new Card(symbol, value);
+	private void createCard (String symbol, String aux, int value) {
+		Card card = new Card(symbol, aux, value);
       	cards.add(card);
 	}
 
@@ -21,18 +21,31 @@ public class Deck {
 		int codePoint=0;
 		String symbol="";
 
+		String aux="";
+
 		for (int c2 = 1, value=1; c2 <= 0xE; c2++, value++) {
 			for (int c1 = 0xA; c1 <= 0xD; c1++) {
 				if (c2!=0xC) {
 					str = String.format("1F0%X%X", c1, c2);
 					codePoint = Integer.parseInt(str, 16);
 					symbol = String.format("%c", codePoint);
-					//System.out.println(symbol);
-					cards.add(new Card (symbol, value));
+
+					/*if(c1==0xA)
+						aux="picas";
+					else if (c1==0xB)
+						aux="corazones";
+					else if (c1==0xC)
+						aux="diamantes";
+					else if (c1==0xD)
+						aux="trébol";					
+					System.out.println(aux+" ~ symbol="+symbol+" ("+value+")");*/
+
+					cards.add(new Card (symbol, str, value));
 				} else {
 					value = 11;
 				}
 			}
+			//System.out.println();
 		}
 
 		for (int i=0;i<5;i++)

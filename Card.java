@@ -3,17 +3,23 @@ import java.lang.Comparable;
 public class Card implements Comparable<Card>{
   
   private String symbol;
+  private String strValue;
   private int value;
   
-  public Card(String symbol, int value) {
-  	if ((symbol == null) || (value == 0))
+  public Card(String symbol, String strValue, int value) {
+  	if ((symbol == null) || (strValue == null) || (value == 0))
   		throw new NullPointerException();
   	this.symbol=symbol;
-  	this.value=value;
+    this.value=value;
+    this.strValue=strValue;
+  }
+
+  public String getStrValue() {
+    return strValue;
   }
 
   public String getSymbol() {
-  	return symbol;
+    return symbol;
   }
 
   public int getValue() {
