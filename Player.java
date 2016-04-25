@@ -54,10 +54,11 @@ public class Player {
 				esER = false;
 				i=4;
 			} else {
-				if (hand[0].getValue() == 10)
-				esER = true;
-				valorJugada = 10;
-				i=4;
+				if (hand[0].getValue() == 10) {
+					esER = true;
+					valorJugada = 10;
+					i=4;
+				}
 			}
 		}
 		return esER;
@@ -74,10 +75,11 @@ public class Player {
 				esEC = false;
 				i=4;
 			} else {
-				if (hand[0].getValue() != 10)
-				esEC = true;
-				valorJugada = 9;
-				i = 4;
+				if (hand[0].getValue() != 10) {
+					esEC = true;
+					valorJugada = 9;
+					i = 4;
+				}
 			}
 		}
 		return esEC;
@@ -117,6 +119,7 @@ public class Player {
 			if (valorActual == valorReferencia) {
 				if (iguales < 3) {
 					trio = true;
+					valorJugada = 4;
 					iguales++;
 					if (iguales == 3)
 						i = (array.length) - 1;
@@ -134,7 +137,7 @@ public class Player {
 		return trio;
 	}
 
-	public boolean hayParCartas (Card[] array) {
+	public boolean hayParCartas (Card[] array, int control) {
 		boolean par = false;
 		int valorReferencia = array[0].getValue();
 		int valorActual = 0;
@@ -143,24 +146,95 @@ public class Player {
 		for (int i = 1; i < array.length; i++) {
 			valorActual = array[i].getValue();
 			if (valorActual == valorReferencia) {
-				//
+				if (iguales == 1) {
+					par = true;
+					iguales++;
+				} else {
+					par = false;
+					i = (array.length) - 1;
+				}
 			} else {
-				//
+				if (i < (array.length - 1)) {
+					valorReferencia = array[i].getValue();
+				}
+				else
+					par = false;
 			}
 		}
 		return par;
 	}
 
+	public boolean full () {
+		boolean esfull = false;
+
+		esfull = hayTrioCartas(getHand());
+		if (esfull) {
+			esfull = hayParCartas(getHand(), 0);
+			valorJugada = 7;
+		}
+		else
+			esfull = false;
+
+		return esfull;
+	}
+
+	public boolean color () {
+		boolean esColor = false;
+		String paloAnterior = hand[0].getStrValue().substring(3,4);
+		String paloActual = "";
+
+		for (int i = 1; i < 5; i++) {
+			paloActual = hand[i].getStrValue().substring(3,4);
+			if (paloActual != paloAnterior) {
+				esColor = false;
+				i=4;
+			} else {
+				esColor = true;
+				valorJugada = 6;
+			}
+		}
+		return esColor;
+	}
+
+	public boolean escalera () {
+		boolean escalera = false;
+		int valorAnterior = hand[0].getValue();
+		int valorActual = 0;
+
+		for (int i = 1; i < 5; i++) {
+			valorActual = hand[i].getValue();
+			if (valorActual != valorAnterior) {
+				if (valorActual == (valorAnterior + 1)) {
+					escalera = true;
+					valorJugada = 5;
+				} else {
+					escalera = false;
+					i = 4;
+				}
+			} else {
+				escalera = false;
+				i = 4;
+			}
+		}
+		return escalera;
+	}
+
 	public String decirJugada () {
 
-		if (escaleraReal())
+		if (escaleraReal()) //10
 			return "Escalera Real";
-		else if (escaleraColor())
+		else if (escaleraColor()) //9
 			return "Escalera Color";
-		else if (poquer())
+		else if (poquer()) //8
 			return "Poquer";
-		else if (hayTrioCartas(getHand()))
-			return "Trío";
+		else if (full()) //7
+			return "Full House";
+		else if (color()) //6
+			return "Color / Flush";
+		else if (escalera()) //5
+			return "Escalera / Straight";
+		else if (hayTrioCartas( getHand() )) //4
+			return "Three / Set";
 		else {
 			valorJugada = 1;
 			return "Carta Alta";
