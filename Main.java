@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class Main {
 
-  Scanner input = new Scanner(System.in);
+  Scanner input;
   Game juegoPoker;
 
   public Main(){
     juegoPoker = new Game();
+    input = new Scanner(System.in);
   }
 
   private void definirJugadores () {

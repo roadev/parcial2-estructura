@@ -13,23 +13,25 @@ public class Deck {
 
 	private void createCard (String symbol, String aux, int value) {
 		Card card = new Card(symbol, aux, value);
-      	cards.add(card);
+    cards.add(card);
 	}
 
 	private void inicialize () {
-		String str="";
-		int codePoint=0;
-		String symbol="";
+		String str = "";
+		int codePoint = 0;
+		String symbol = "";
 
-		String aux="";
-
-		for (int c2 = 1, value=1; c2 <= 0xE; c2++, value++) {
+		String aux = "";
+		//ciclo de las filas - símbolo/valor de la carta
+		for (int c2 = 1, value = 1; c2 <= 0xE; c2++, value++) {
+			//iteración para los palos
+			// A -> picas, B -> corazones, C -> diamantes, D -> Trébol
 			for (int c1 = 0xA; c1 <= 0xD; c1++) {
-				if (c2!=0xC) {
+				if (c2 != 0xC) {
 					str = String.format("1F0%X%X", c1, c2);
 					codePoint = Integer.parseInt(str, 16);
 					symbol = String.format("%c", codePoint);
-
+					//testeando los palos con hexadecimales
 					/*if(c1==0xA)
 						aux="picas";
 					else if (c1==0xB)
@@ -37,7 +39,7 @@ public class Deck {
 					else if (c1==0xC)
 						aux="diamantes";
 					else if (c1==0xD)
-						aux="trébol";					
+						aux="trébol";
 					System.out.println(aux+" ~ symbol="+symbol+" ("+value+")");*/
 
 					cards.add(new Card (symbol, str, value));
@@ -75,7 +77,7 @@ public class Deck {
 	public void insertSubList(Card[] returnSublist) {
 		int pos = 0;
 		Card[] arrayCards = returnSublist;
-		
+
 		do{
 			cards.add(arrayCards[pos]);
 			pos++;

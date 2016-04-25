@@ -3,21 +3,22 @@ import java.util.ArrayList;
 
 public class Game {
 
-  private Scanner input = new Scanner(System.in);
+  private Scanner input;
   private int numPlayers;
   private ArrayList<Player> players;
   private Deck baraja;
-  
+
   public Game() {
     numPlayers = 0;
     players = new ArrayList<Player>();
     baraja = new Deck();
+    input = new Scanner(System.in);
   }
 
   public void setNumPlayers(int numPlayers) {
   	this.numPlayers = numPlayers;
 
-  	for (int i=0; i<numPlayers; i++)
+  	for (int i = 0; i < numPlayers; i++)
   		players.add(new Player());
   }
 
@@ -49,8 +50,8 @@ public class Game {
     System.out.println("(input) Jugador "+(i+1)+" escriba 0 para retirarse");
     int x = input.nextInt();
 
-    if (x==0) {
-      retira=true;
+    if (x == 0) {
+      retira = true;
       Card[] regresan = players.get(i).getHand();
       baraja.insertSubList(regresan);
     }
@@ -68,18 +69,18 @@ public class Game {
         System.out.println("(input) Ingrese su apuesta Jugador "+(i+1)+":");
         actualBet = input.nextInt();
 
-        if (actualBet<1) {//apuesta menor a 1
+        if (actualBet < 1) {//apuesta menor a 1
           System.out.println("(error) Jugador "+(i+1)+" La apuesta debe ser mayor a 0");
-          nuevoIntento= !retirar(i);
+          nuevoIntento = !retirar(i);
         } else {//apuesta positiva
-          if (i>0) {//a partir del 2do jugador
-            anteriorBet=players.get(0).getBet();
-            if (anteriorBet!=0) {//si hay apuesta anteriormente
-              if (actualBet==anteriorBet) //si coinciden las apuestas
-                nuevoIntento=false;
+          if (i > 0) {//a partir del 2do jugador
+            anteriorBet = players.get(0).getBet();
+            if (anteriorBet != 0) {//si hay apuesta anteriormente
+              if (actualBet == anteriorBet) //si coinciden las apuestas
+                nuevoIntento = false;
               else { //si no coinciden las apuestas
                 System.out.println("(error) Jugador "+(i+1)+" La apuesta ya se estableció en "+anteriorBet);
-                nuevoIntento= !retirar(i);
+                nuevoIntento = !retirar(i);
               }
             } else {//si no hay apuesta anteriormente
               nuevoIntento = false;
@@ -106,14 +107,14 @@ public class Game {
 
   public void destaparCartas () {
     //Mostrar Cartas de todos los jugadores
-    for (int i=0; i<numPlayers; i++) {
+    for (int i = 0; i < numPlayers; i++) {
       int apuesta = players.get(i).getBet();
-      if(apuesta!=0) {
-        System.out.println("Jugador "+(i+1)+":\n"+players.get(i).printHand());
+      if(apuesta != 0) {
+        System.out.println("Jugador " + (i+1) + ":\n" + players.get(i).printHand());
         System.out.println(players.get(i).decirJugada());
       }
       else
-        System.out.println("Jugador "+(i+1)+": retirado");
+        System.out.println("Jugador " + (i+1) + ": retirado");
     }
 
     //Decidir Ganador
@@ -129,9 +130,9 @@ public class Game {
     posParciales.add(0);
 
     //Decidir Ganador(es)
-    for (int i=1; i<numPlayers; i++) {
+    for (int i = 1; i < numPlayers; i++) {
       valJugada = players.get(i).getValorJugada();
-      
+
       if (valJugada == jugadaBase) {
         ganadoresParciales.add(players.get(i));
         posParciales.add(i);
@@ -146,8 +147,8 @@ public class Game {
 
     //Imprimir Ganador(es)
     System.out.println("\nGanador(es):");
-    for (int i=0; i<ganadoresParciales.size(); i++) {
-      System.out.println("\tJugador "+(posParciales.get(i)+1));
+    for (int i = 0; i < ganadoresParciales.size(); i++) {
+      System.out.println("\tJugador " + (posParciales.get(i)+1));
     }
   }
 

@@ -37,7 +37,7 @@ public class Player {
 
 	public String printHand () {
 		String handStr = "";
-		for (int i=0; i<5; i++) {
+		for (int i = 0; i < 5; i++) {
 			handStr += hand[i].getSymbol() + " ";
 		}
 		return handStr;
@@ -48,8 +48,8 @@ public class Player {
 		String paloAnterior = hand[0].getStrValue().substring(3,4);
 		String paloActual = "";
 
-		for (int i=1; i<5; i++) {
-			paloActual=hand[i].getStrValue().substring(3,4);
+		for (int i = 1; i < 5; i++) {
+			paloActual = hand[i].getStrValue().substring(3,4);
 			if (paloActual != paloAnterior) {
 				esER = false;
 				i=4;
@@ -68,16 +68,16 @@ public class Player {
 		String paloAnterior = hand[0].getStrValue().substring(3,4);
 		String paloActual = "";
 
-		for (int i=1; i<5; i++) {
-			paloActual=hand[i].getStrValue().substring(3,4);
+		for (int i = 1; i < 5; i++) {
+			paloActual = hand[i].getStrValue().substring(3,4);
 			if (paloActual != paloAnterior) {
 				esEC = false;
 				i=4;
-			} else {	
+			} else {
 				if (hand[0].getValue() != 10)
 				esEC = true;
 				valorJugada = 9;
-				i=4;
+				i = 4;
 			}
 		}
 		return esEC;
