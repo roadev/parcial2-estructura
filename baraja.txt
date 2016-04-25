@@ -1,17 +1,17 @@
-picas ~ symbol=🂡 (14)
-corazones ~ symbol=🂱 (14)
-diamantes ~ symbol=🃁 (14)
-trébol ~ symbol=🃑 (14)
+picas ~ symbol=🂡 (14) strValue ~ 1F0A1
+corazones ~ symbol=🂱 (14) strValue ~ 1F0B1
+diamantes ~ symbol=🃁 (14) strValue ~ 1F0C1
+trébol ~ symbol=🃑 (14) strValue ~ 1F0D1
 
-picas ~ symbol=🂢 (2)
-corazones ~ symbol=🂲 (2)
-diamantes ~ symbol=🃂 (2)
-trébol ~ symbol=🃒 (2)
+picas ~ symbol=🂢 (2) strValue ~ 1F0A2
+corazones ~ symbol=🂲 (2) strValue ~ 1F0B2
+diamantes ~ symbol=🃂 (2) strValue ~ 1F0C2
+trébol ~ symbol=🃒 (2) 1strValue ~ F0D2
 
-picas ~ symbol=🂣 (3)
-corazones ~ symbol=🂳 (3)
-diamantes ~ symbol=🃃 (3)
-trébol ~ symbol=🃓 (3)
+picas ~ symbol=🂣 (3) strValue ~ 1F0A3
+corazones ~ symbol=🂳 (3) strValue ~ 1F0B3
+diamantes ~ symbol=🃃 (3) strValue ~ 1F0C3
+trébol ~ symbol=🃓 (3) strValue ~ 1F0D3
 
 picas ~ symbol=🂤 (4)
 corazones ~ symbol=🂴 (4)

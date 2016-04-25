@@ -105,6 +105,7 @@ public class Game {
   }
 
   public void destaparCartas () {
+    //Mostrar Cartas de todos los jugadores
     for (int i=0; i<numPlayers; i++) {
       int apuesta = players.get(i).getBet();
       if(apuesta!=0) {
@@ -113,6 +114,40 @@ public class Game {
       }
       else
         System.out.println("Jugador "+(i+1)+": retirado");
+    }
+
+    //Decidir Ganador
+    compararJugadas();
+  }
+
+  public void compararJugadas () {
+    ArrayList<Player> ganadoresParciales = new ArrayList<Player>();
+    ArrayList<Integer> posParciales = new ArrayList<Integer>();
+    int jugadaBase = players.get(0).getValorJugada();
+    int valJugada = 0;
+    ganadoresParciales.add(players.get(0));
+    posParciales.add(0);
+
+    //Decidir Ganador(es)
+    for (int i=1; i<numPlayers; i++) {
+      valJugada = players.get(i).getValorJugada();
+      
+      if (valJugada == jugadaBase) {
+        ganadoresParciales.add(players.get(i));
+        posParciales.add(i);
+      }
+      else if (valJugada > jugadaBase) {
+        ganadoresParciales.clear();
+        posParciales.clear();
+        ganadoresParciales.add(players.get(i));
+        posParciales.add(i);
+      }
+    }
+
+    //Imprimir Ganador(es)
+    System.out.println("\nGanador(es):");
+    for (int i=0; i<ganadoresParciales.size(); i++) {
+      System.out.println("\tJugador "+(posParciales.get(i)+1));
     }
   }
 
